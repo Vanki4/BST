@@ -384,19 +384,25 @@ BinarySearchTree::ConstIterator BinarySearchTree::max() const {
 }
 
 BinarySearchTree::ConstIterator BinarySearchTree::min(const Key &key) const {
-	return find(key);
+	std::pair<ConstIterator,ConstIterator> tmp = equalRange(key);
+	if (tmp.first==cend()) return cend();
+	ConstIterator mini = tmp.first;
+	for (auto i = tmp.first;i!=tmp.second;i++)
+	{
+		if ((*mini).second > (*i).second) mini=i;
+	}
+	return mini;
 }
 
 BinarySearchTree::ConstIterator BinarySearchTree::max(const Key &key) const {
-	ConstIterator it = find(key);
-	if (it == cend()) return cend();
-	ConstIterator res = it;
-	while (it != cend() && (*it).first == key)
-	{
-		res = it;
-		++it;
-	}
-	return res;
+	std::pair<ConstIterator,ConstIterator> tmp = equalRange(key);
+        if (tmp.first==cend()) return cend();
+        ConstIterator maxi = tmp.first;
+        for (auto i = tmp.first;i!=tmp.second;i++)
+        { 
+                if ((*maxi).second < (*i).second) maxi=i;
+        } 
+        return maxi;
 }
 
 BinarySearchTree::Iterator BinarySearchTree::begin() {
