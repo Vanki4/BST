@@ -159,7 +159,7 @@ BinarySearchTree::Iterator BinarySearchTree::Iterator::operator++() {
 	}
 	while (_node->parent!=nullptr)
 	{
-		if (_node->parent == _node->parent->left)
+		if (_node == _node->parent->left)
 		{
 			_node = _node->parent;
 			return *this;
@@ -188,7 +188,7 @@ BinarySearchTree::Iterator BinarySearchTree::Iterator::operator--() {
           }
           while (_node->parent!=nullptr)
           {
-                  if (_node->parent == _node->parent->right)
+                  if (_node == _node->parent->right)
                   {
                           _node = _node->parent;
                           return *this;
@@ -237,7 +237,7 @@ BinarySearchTree::ConstIterator BinarySearchTree::ConstIterator::operator++() {
           }
           while (_node->parent!=nullptr)
           {
-                  if (_node->parent == _node->parent->left)
+                  if (_node == _node->parent->left)
                   {
                           _node = _node->parent;
                           return *this;
@@ -266,7 +266,7 @@ BinarySearchTree::ConstIterator BinarySearchTree::ConstIterator::operator--() {
           }
           while (_node->parent!=nullptr)
           {
-                  if (_node->parent == _node->parent->right)
+                  if (_node == _node->parent->right)
                   {
                           _node = _node->parent;
                           return *this;
