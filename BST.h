@@ -41,6 +41,7 @@ class BinarySearchTree
     };
 
 public:
+    void freeSubtree(Node* other);
     //! Конструктор по умолчанию
     BinarySearchTree() = default;
     //! Конструктор копирования
