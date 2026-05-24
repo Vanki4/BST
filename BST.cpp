@@ -355,7 +355,8 @@ BinarySearchTree::ConstIterator BinarySearchTree::min() const {
 }
 
 BinarySearchTree::ConstIterator BinarySearchTree::max() const {
-	return cend();
+	if (_root==nullptr) return cend();
+	return --cend();
 }
 
 BinarySearchTree::ConstIterator BinarySearchTree::min(const Key &key) const {
