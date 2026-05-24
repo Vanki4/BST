@@ -358,7 +358,7 @@ BinarySearchTree::ConstIterator BinarySearchTree::max() const {
 	Node *tmp = _root;
 	if (tmp==nullptr) return cend();
 	while (tmp->right) tmp = tmp->right;
-	return ConstIterator(tmp);
+	return ConstIterator(tmp->parent);
 }
 
 BinarySearchTree::ConstIterator BinarySearchTree::min(const Key &key) const {
